@@ -1,0 +1,54 @@
+.sideBar{
+    flex: 3;
+    padding: 1%;
+    background-color: #faf9f6;
+    /* box-shadow: 0 0 10px #b6b5b3; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Varela Round', sans-serif;
+} 
+
+.sideBarItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100%;
+}
+.sideBarItem > p {
+    padding: 10%;
+}
+.sideBarTitle{
+    padding: 3%;
+    border-top: 1px solid #3F3026;
+    border-bottom: 1px solid #3F3026;
+    font-size: 1rem;
+    color: #3F3026 ;
+    line-height: 1.6rem;
+    text-align: center;
+    font-weight: 600;
+    width: 80%;
+}
+.sideBarProfileImg{
+    margin-top: 1rem;
+    object-fit:cover;
+    height: 17.24rem;
+    width:   17.24rem;
+    padding: 0%;
+}
+
+.sideBarList{
+    text-align: center;
+    padding: 2%;
+    list-style: none;
+    min-width: 40%;
+    line-height: 1.6rem;
+}
+.sideBarSocial{
+    margin-top: 2%;
+    padding: 2%;
+    display: flex;
+    justify-content: space-evenly;
+    min-width: 80%;
+    cursor: pointer;
+}

@@ -1,0 +1,40 @@
+.settings{
+    display: flex;
+}
+.settingsWrapper{
+    flex: 9;
+    padding: 1rem;
+}
+.settingsTitle{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.settingsUpdateTitle{
+    font-size: 2rem;
+    margin: 1rem 0;
+    color:cornflowerblue;
+    align-self: center;
+
+}
+.settingsDeleteTitle{
+    font-size: 1rem;
+    margin: 1rem;
+    color: red;
+    align-self: center;
+}
+.settingsForm{
+    width: 100%;
+
+}
+.settingsPP{
+    width: 5rem;
+    height: 5rem;
+    object-fit:cover;
+    border-radius: 0.5rem;
+}
+
+.settingsInput{
+    margin: 2rem 3rem;
+    color: grey;
+}

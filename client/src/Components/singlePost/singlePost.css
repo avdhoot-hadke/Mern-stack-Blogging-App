@@ -1,0 +1,57 @@
+.singlePost{
+    flex: 9;
+}
+.singlePostWrapper{
+    padding: 2rem;
+}
+.singlePostImg{
+    width: 100%;
+    height: 18rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    object-position: top;
+}
+.singlePostTitle{
+    text-align: center;
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    margin: 1.5rem 0; 
+    font-style: italic;
+    font-weight: 600;
+}
+.singlePostEdit{
+    float: right;
+    color: #3F3026;
+    font-size: 1.2rem;
+}
+.singlePostEdit > i{
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+}
+.singlePostIcon:first-child:hover{
+    color: green;
+}
+.singlePostIcon:last-child:hover{
+    color: red;
+}
+.singlePostInfo{
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: #A48F49;
+    font-family: 'Varela Round', sans-serif;
+}
+.singlePostDesc{
+    font-size: 1.2rem;
+    color: #3F3026;
+    line-height: 1.8rem;
+    font-weight: 400;
+    font-family: 'Lora', serif;
+}
+.singlePostDesc::first-letter{
+    margin-left: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+}

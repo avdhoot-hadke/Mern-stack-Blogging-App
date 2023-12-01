@@ -1,0 +1,58 @@
+.post{
+    width:25rem;
+    margin: 1rem 2rem 3rem 2rem;
+}
+
+.postImage{
+    width: 100%;
+    height: 18rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+.postInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.postCat{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1rem;
+    color: #A48F49;
+    line-height: 1.2rem;
+    margin-right: 0.7rem;
+    cursor: pointer;
+}
+.postCats{
+    padding-top: 1rem;
+}
+.postTitle{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+.postInfo > hr{
+    margin-top: 0;
+}
+.postDesc{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1rem;
+    margin: 1rem 1rem;
+    color: gray;
+    line-height: 1.5rem;
+    
+    /* Limit no of text in desc */
+    overflow:hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.postDate{
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #999;
+}
