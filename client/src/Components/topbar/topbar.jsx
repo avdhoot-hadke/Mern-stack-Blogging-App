@@ -1,8 +1,15 @@
+import { useContext } from "react";
+import AuthContext from "../../context/authContext";
 import "./topbar.css";
 import { Link, useParams } from "react-router-dom";
 
 function TopBar() {
-  const user = false;
+  const { user, setUser } = useContext(AuthContext);
+
+  function handleLogout() {
+    setUser(null);
+    localStorage.removeItem("user");
+  }
   return (
     <>
       <nav className=" top navbar sticky-top navbar-expand-lg navbar-light bg-light">
@@ -67,9 +74,9 @@ function TopBar() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <Link className="routerLink" to="/">
-                    {user && "Logout"}
+                <a className="nav-link">
+                  <Link className="routerLink" to="/" onClick={handleLogout}>
+                    {user != null && "Logout"}
                   </Link>
                 </a>
               </li>
@@ -77,13 +84,7 @@ function TopBar() {
 
             <ul className="navbar-nav px-5 ">
               <li className=" pe-3 ">
-                {user ? (
-                  <img
-                    alt=""
-                    className="topbar-img"
-                    src="https://www.dlf.pt/dfpng/middlepng/38-384439_red-dead-redemption-2-arthur-morgan-hd-png.png"
-                  />
-                ) : (
+                {user == null ? (
                   <li className="nav-item">
                     <a className="nav-link" href="#">
                       <Link className="routerLink" to="/login">
@@ -91,6 +92,8 @@ function TopBar() {
                       </Link>
                     </a>
                   </li>
+                ) : (
+                  <img alt="" className="topbar-img" src={user.profilePic} />
                 )}
               </li>
               <li className="pt-2 searchIcon">

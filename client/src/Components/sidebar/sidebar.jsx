@@ -1,6 +1,32 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "./sidebar.css";
 import Profile1 from "../../assests/profile1.jpg";
+import { Link, useLocation } from "react-router-dom";
+
 function Sidebar() {
+  const [cat, setCat] = useState([]);
+
+  const location = useLocation();
+  // Extract pathname from the location object
+  const path = location.pathname;
+  // Split the pathname into segments
+  const segments = path.split("/");
+  segments.pop(); // Remove the last segment
+  const newpath = segments.join("/");
+
+  useEffect(() => {
+    // Fetch data when the component mounts
+    axios
+      .get("/categories")
+      .then((response) => {
+        setCat(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   return (
     <div className="sideBar">
       <div className="sideBarItem">
@@ -16,9 +42,18 @@ function Sidebar() {
         <span className="sideBarTitle">CATEGORIES</span>
 
         <ul className="sideBarList">
-          <li className="sideBarListItems">Tech</li>
-          <li className="sideBarListItems">Cricket</li>
-          <li className="sideBarListItems">Travel</li>
+          {cat.map((c) => {
+            return (
+              <li key={c._id} className="sideBarListItems">
+                <Link
+                  className="routerLink"
+                  to={`${newpath}?category=${c.name}`}
+                >
+                  {c.name}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
 

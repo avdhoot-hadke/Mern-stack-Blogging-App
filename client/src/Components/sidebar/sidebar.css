@@ -43,7 +43,14 @@
     list-style: none;
     min-width: 40%;
     line-height: 1.6rem;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-evenly;
 }
+.sideBarListItems {
+    width: 48%; 
+    margin: 1%; 
+  }
 .sideBarSocial{
     margin-top: 2%;
     padding: 2%;

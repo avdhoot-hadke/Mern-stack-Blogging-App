@@ -25,3 +25,7 @@
     text-decoration: none;
 
 }
+.error-message{
+    align-self: center;
+    color: red;
+}

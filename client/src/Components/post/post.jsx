@@ -1,33 +1,31 @@
 import "./post.css";
 import postImage from "../../assests/post1.jpg";
+import { Link } from "react-router-dom";
 
-function Post() {
+function Post({ post }) {
+  const { title, categories, createdAt, description, photo, _id } = post;
+
   return (
     <div className="post">
-      <img className="postImage" alt="" src={postImage} />
+      {photo && <img className="postImage" alt="" src={photo} />}
 
       <div className="postInfo">
         <div className="postCats">
-          <span className="postCat">Music</span>
-          <span className="postCat">Life</span>
+          {/* Assuming categories is an array */}
+          {categories.map((category) => (
+            <span key={category} className="postCat">
+              {category}
+            </span>
+          ))}
         </div>
-        <span className="postTitle">Velit non derit proident cillum.</span>
+        <Link className="routerLink" to={`/posts/${_id}`}>
+          <span className="postTitle">{title}</span>
+        </Link>
         <hr />
-        <span className="postDate">1 hr ago</span>
+        <span className="postDate">{new Date(createdAt).toDateString()}</span>
       </div>
 
-      <p className="postDesc">
-        Veniam eu nisi ea Lorem eiusmod et minim voluptate excepteur labore
-        commodo et do.Veniam eu nisi ea Lorem eiusmod et minim voluptate
-        excepteur labore commodo et do.Veniam eu nisi ea Lorem eiusmod et minim
-        voluptate excepteur labore commodo et do.Veniam eu nisi ea Lorem eiusmod
-        et minim voluptateexcepteur labore commodo et do. Veniam eu nisi ea
-        Lorem eiusmod et minim voluptate excepteur labore commodo et do.Veniam
-        eu nisi ea Lorem eiusmod et minim voluptate excepteur labore commodo et
-        do. Veniam eu nisi ea Lorem eiusmod et minim voluptate excepteur labore
-        commodo et do.Veniam eu nisi ea Lorem eiusmod et minim voluptate
-        excepteur labore commodo et do.
-      </p>
+      <p className="postDesc">{description}</p>
     </div>
   );
 }
