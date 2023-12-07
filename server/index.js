@@ -7,36 +7,26 @@ import userRoute from "./routes/userRoute.js";
 import postRoute from "./routes/postsRoute.js";
 import categoryRoute from "./routes/categoryRoute.js";
 import uploadRoute from "./routes/uploadRoute.js";
+import path from "path"; // Import the 'path' module
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 //Middlewares
 main();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// //multer init
-// var storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, "images");
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname);
-//   },
-// });
-// var upload = multer({ storage: storage });
-
-// app.post("/upload", upload.single("file"), (req, res) => {
-//   res.status(200).json("File has been uploaded");
-// });
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 //routes
 app.get("/", function (req, res) {
-  res.send("Hello");
+  res.send("Server started...");
 });
-
 app.use("/api/auth", authRoute);
 app.use("/user", userRoute);
 app.use("/posts", postRoute);

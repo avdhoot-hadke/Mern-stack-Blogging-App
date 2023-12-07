@@ -100,17 +100,34 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//Delete Post
+// Delete Post
 router.delete("/:id", async (req, res) => {
   try {
-    const data = await PostModel.findOneAndDelete(req.params.id);
+    const post = await PostModel.findById(req.params.id);
+    console.log(post);
+    console.log(req.body.username);
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
 
-    if (data) {
-      res.status(202).json("Post deleted."); // Send a 204 No Content response upon successful deletion
+    if (post.username === req.body.username) {
+      try {
+        await PostModel.deleteOne({
+          username: post.username,
+          title: post.title,
+        });
+        res.status(200).json({ message: "Post has been deleted" });
+      } catch (error) {
+        console.error("Error while deleting post:", error);
+        res.status(500).json({ message: "Internal Server Error" });
+      }
+    } else {
+      res.status(401).json({ message: "You can delete only your post" });
     }
   } catch (error) {
-    console.error("Error while updating user:", error);
-    res.status(500).json({ message: error.message });
+    console.error("Error while deleting post:", error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
 export default router;

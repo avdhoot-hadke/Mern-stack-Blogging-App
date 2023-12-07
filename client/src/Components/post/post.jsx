@@ -1,13 +1,12 @@
 import "./post.css";
-import postImage from "../../assests/post1.jpg";
 import { Link } from "react-router-dom";
 
 function Post({ post }) {
   const { title, categories, createdAt, description, photo, _id } = post;
-
+  const PF = `http://localhost:3000/images/`;
   return (
     <div className="post">
-      {photo && <img className="postImage" alt="" src={photo} />}
+      {photo && <img className="postImage" alt="" src={PF + photo} />}
 
       <div className="postInfo">
         <div className="postCats">

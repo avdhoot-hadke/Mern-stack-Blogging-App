@@ -64,7 +64,7 @@ router.delete("/:id", async (req, res) => {
   // Check if the user is authorized to delete
   try {
     const id = req.params.id;
-    const user = await User.findById(req.params.id);
+    const user = await User.findById(id);
     try {
       await PostModel.deleteMany({ username: user.username });
 
