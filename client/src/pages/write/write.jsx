@@ -50,6 +50,7 @@ function Write() {
 
   return (
     <div className="write">
+      <h1>Write new Post</h1>
       {/* Img */}
       {file && (
         <div className="writeImgDiv">

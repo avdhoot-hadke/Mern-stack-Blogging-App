@@ -1,5 +1,10 @@
 .write{
     margin:1rem 10rem ;
+    font-family: 'Lora', serif;
+    text-align: center;
+}
+.write > h1 {
+    margin-bottom: 3rem;
 }
 .writeImgDiv{
     

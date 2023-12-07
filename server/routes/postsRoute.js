@@ -76,6 +76,7 @@ router.get("/:id", async (req, res) => {
 //Update Post
 router.put("/:id", async (req, res) => {
   const { title, description, photo, username, categories } = req.body;
+  console.log(req.body);
 
   try {
     let updatedFields = {
