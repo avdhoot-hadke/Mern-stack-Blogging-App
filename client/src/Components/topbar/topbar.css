@@ -20,6 +20,9 @@
 .searchIcon{
    cursor: pointer;
 }
+.userIcon{
+   padding-top: 0.5rem;
+}
 .routerLink{
   text-decoration: none;
   color: inherit;

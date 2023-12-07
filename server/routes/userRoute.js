@@ -50,9 +50,9 @@ router.put("/:id", async (req, res) => {
       req.params.id,
       updatedFields,
       { new: true } // Return the modified user
-    );
-
-    res.status(200).json(updatedUser);
+    ).lean();
+    const { password: userPassword, ...others } = updatedUser;
+    res.status(200).json(others);
   } catch (error) {
     console.error("Error while updating user:", error);
     res.status(500).json({ message: error.message });

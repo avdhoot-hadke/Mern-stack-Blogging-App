@@ -1,11 +1,15 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import "./sidebar.css";
 import Profile1 from "../../assests/profile1.jpg";
 import { Link, useLocation } from "react-router-dom";
+import AuthContext from "../../context/authContext";
+import def_img from "../../assests/def_img2.jpg";
 
 function Sidebar() {
+  const { user } = useContext(AuthContext);
   const [cat, setCat] = useState([]);
+  const PF = `http://localhost:3000/images/`;
 
   const location = useLocation();
   // Extract pathname from the location object
@@ -31,11 +35,12 @@ function Sidebar() {
     <div className="sideBar">
       <div className="sideBarItem">
         <span className="sideBarTitle">ABOUT ME</span>
-        <img className="sideBarProfileImg" src={Profile1} alt="" />
-        <p>
-          Do non incididunt id officia eu aliqua minim. Culpa mollit cillum
-          reprehenderit occaecat aute qui quis voluptate deserunt. Veniam et
-        </p>
+        <img
+          className="sideBarProfileImg"
+          src={user && user.profilePic !== "" ? PF + user.profilePic : def_img}
+          alt=""
+        />
+        <p>{user && user.username}</p>
       </div>
 
       <div className="sideBarItem">

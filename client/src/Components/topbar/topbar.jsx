@@ -10,6 +10,7 @@ function TopBar() {
     setUser(null);
     localStorage.removeItem("user");
   }
+  const PF = `http://localhost:3000/images/`;
   return (
     <>
       <nav className=" top navbar sticky-top navbar-expand-lg navbar-light bg-light">
@@ -83,7 +84,7 @@ function TopBar() {
             </ul>
 
             <ul className="navbar-nav px-5 ">
-              <li className=" pe-3 ">
+              <li className=" pe-3  ">
                 {user == null ? (
                   <li className="nav-item">
                     <a className="nav-link" href="#">
@@ -93,7 +94,18 @@ function TopBar() {
                     </a>
                   </li>
                 ) : (
-                  <img alt="" className="topbar-img" src={user.profilePic} />
+                  <Link className="routerLink" to="/settings">
+                    {/* <img alt="" className="topbar-img" src={user.profilePic} /> */}
+                    {user.profilePic ? (
+                      <img
+                        className="topbar-img"
+                        alt=""
+                        src={PF + user.profilePic}
+                      />
+                    ) : (
+                      <i className="fa-regular fa-user userIcon"></i>
+                    )}
+                  </Link>
                 )}
               </li>
               <li className="pt-2 searchIcon">
